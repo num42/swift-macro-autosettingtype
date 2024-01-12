@@ -4,13 +4,15 @@
 import CompilerPluginSupport
 import PackageDescription
 
+let name = "AutoSettingType"
+
 let package = Package(
-  name: "AutoSettingType",
+  name: name,
   platforms: [.macOS(.v12), .iOS(.v13), .tvOS(.v13), .watchOS(.v6), .macCatalyst(.v13)],
   products: [
     .library(
-      name: "AutoSettingType",
-      targets: ["AutoSettingType"]
+      name: name,
+      targets: [name]
     )
   ],
   dependencies: [
@@ -19,20 +21,20 @@ let package = Package(
   ],
   targets: [
     .macro(
-      name: "AutoSettingTypeMacros",
+      name: "\(name)Macros",
       dependencies: [
         .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
         .product(name: "SwiftCompilerPlugin", package: "swift-syntax")
       ]
     ),
     .target(
-      name: "AutoSettingType",
-      dependencies: ["AutoSettingTypeMacros"]
+      name: name,
+      dependencies: [.target(name: "\(name)Macros")]
     ),
     .testTarget(
-      name: "AutoSettingTypeTests",
+      name: "\(name)Tests",
       dependencies: [
-        "AutoSettingTypeMacros",
+        .target(name: "\(name)Macros"),
         .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
         .product(name: "MacroTester", package: "swift-macrotester")
       ]
