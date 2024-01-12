@@ -11,19 +11,11 @@ let package = Package(
     .library(
       name: "AutoSettingType",
       targets: ["AutoSettingType"]
-    ),
-    .executable(
-      name: "AutoSettingTypeClient",
-      targets: ["AutoSettingTypeClient"]
     )
   ],
   dependencies: [
-    .package(path: "../MacroTester"),
+    .package(url: "git@github.com:num42/swift-macrotester.git", from: "1.0.0"),
     .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.0")
-//    .package(
-//      url: "https://github.com/realm/SwiftLint",
-//      from: "0.53.0"
-//    )
   ],
   targets: [
     .macro(
@@ -37,17 +29,13 @@ let package = Package(
       name: "AutoSettingType",
       dependencies: ["AutoSettingTypeMacros"]
     ),
-    .executableTarget(
-      name: "AutoSettingTypeClient",
-      dependencies: ["AutoSettingType"]
-    ) // ,
-//    .testTarget(
-//      name: "AutoSettingTypeTests",
-//      dependencies: [
-//        "AutoSettingTypeMacros",
-//        .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
-//        .product(name: "MacroTester", package: "MacroTester")
-//      ]
-//    )
+    .testTarget(
+      name: "AutoSettingTypeTests",
+      dependencies: [
+        "AutoSettingTypeMacros",
+        .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
+        .product(name: "MacroTester", package: "swift-macrotester")
+      ]
+    )
   ]
 )
