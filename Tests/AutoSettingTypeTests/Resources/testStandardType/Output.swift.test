@@ -1,0 +1,9 @@
+public enum SettingTypes {
+  public struct Allow: SettingsTypeProtocol {
+    public init(setting: Setting<Int>) {
+      self.setting = setting
+    }
+
+    public var setting: Setting<Int>
+  }
+}

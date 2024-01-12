@@ -1,0 +1,3 @@
+public enum SettingTypes {
+  #AutoSettingType(name: "Allow", type: Set<Entry.ID>.self)
+}
