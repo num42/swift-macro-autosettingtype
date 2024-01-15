@@ -9,7 +9,6 @@ import XCTest
   let testMacros: [String: Macro.Type] = [
     "AutoSettingType": AutoSettingTypeMacro.self
   ]
-#endif
 
 final class AutoSettingTypeTests: XCTestCase {
   func testStandardType() throws {
@@ -32,3 +31,4 @@ final class AutoSettingTypeTests: XCTestCase {
     testMacro(macros: testMacros)
   }
 }
+#endif
