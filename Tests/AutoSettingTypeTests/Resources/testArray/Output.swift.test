@@ -1,5 +1,5 @@
 public enum SettingTypes {
-  public struct Allow: SettingsTypeProtocol {
+  public struct Allow: SettingTypeProtocol {
     public init(setting: Setting<[Int]>) {
       self.setting = setting
     }

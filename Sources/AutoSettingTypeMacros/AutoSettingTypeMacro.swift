@@ -25,7 +25,7 @@ public struct AutoSettingTypeMacro: DeclarationMacro {
 
     return [
       """
-      public struct \(raw: structName): SettingsTypeProtocol {
+      public struct \(raw: structName): SettingTypeProtocol {
         public init(setting: Setting<\(raw: typeString)>) {
           self.setting = setting
         }
