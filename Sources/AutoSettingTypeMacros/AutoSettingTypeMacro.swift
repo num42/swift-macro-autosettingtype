@@ -9,7 +9,7 @@ public struct AutoSettingTypeMacro: DeclarationMacro {
     in context: some MacroExpansionContext
   ) throws -> [DeclSyntax] {
     let structName = node
-      .argumentList.as(LabeledExprListSyntax.self)!
+      .arguments
       .first!
       .expression.as(StringLiteralExprSyntax.self)!
       .segments
@@ -17,7 +17,7 @@ public struct AutoSettingTypeMacro: DeclarationMacro {
       .content
       .text
 
-    let typeString = node.argumentList
+    let typeString = node.arguments
       .last!
       .expression.as(MemberAccessExprSyntax.self)!
       .base!
