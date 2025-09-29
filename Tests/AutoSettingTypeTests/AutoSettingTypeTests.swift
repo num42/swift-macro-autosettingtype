@@ -1,7 +1,7 @@
 import MacroTester
 import SwiftSyntaxMacros
 import SwiftSyntaxMacrosTestSupport
-import XCTest
+import Testing
 
 #if canImport(AutoSettingTypeMacros)
   import AutoSettingTypeMacros
@@ -10,25 +10,25 @@ import XCTest
     "AutoSettingType": AutoSettingTypeMacro.self
   ]
 
-final class AutoSettingTypeTests: XCTestCase {
-  func testStandardType() throws {
-    testMacro(macros: testMacros)
+@Suite struct AutoSettingTypeTests {
+  @Test func standardType() {
+      MacroTester.testMacro(macros: testMacros)
   }
 
-  func testSimpleGenericType() throws {
-    testMacro(macros: testMacros)
+  @Test func simpleGenericType() {
+      MacroTester.testMacro(macros: testMacros)
   }
 
-  func testAdvancedGenericType() throws {
-    testMacro(macros: testMacros)
+  @Test func advancedGenericType() {
+      MacroTester.testMacro(macros: testMacros)
   }
 
-  func testArray() throws {
-    testMacro(macros: testMacros)
+  @Test func array() {
+      MacroTester.testMacro(macros: testMacros)
   }
 
-  func testArrayWithProperty() throws {
-    testMacro(macros: testMacros)
+  @Test func arrayWithProperty() {
+      MacroTester.testMacro(macros: testMacros)
   }
 }
 #endif
