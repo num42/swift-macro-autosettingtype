@@ -10,24 +10,25 @@ import Testing
     "AutoSettingType": AutoSettingTypeMacro.self
   ]
 
-@Suite struct AutoSettingTypeTests {
-  @Test func standardType() {
+  @Suite struct AutoSettingTypeTests {
+    @Test func standardType() {
       MacroTester.testMacro(macros: testMacros)
-  }
+    }
 
-  @Test func simpleGenericType() {
+    @Test func simpleGenericType() {
       MacroTester.testMacro(macros: testMacros)
-  }
+    }
 
-  @Test func advancedGenericType() {
+    @Test func advancedGenericType() {
       MacroTester.testMacro(macros: testMacros)
-  }
+    }
 
-  @Test func array() {
+    @Test func array() {
       MacroTester.testMacro(macros: testMacros)
-  }
+    }
 
-  @Test func arrayWithProperty() {
+    @Test func arrayWithProperty() {
       MacroTester.testMacro(macros: testMacros)
+    }
   }
 #endif
