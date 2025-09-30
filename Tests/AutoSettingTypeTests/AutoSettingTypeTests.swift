@@ -30,5 +30,4 @@ import Testing
   @Test func arrayWithProperty() {
       MacroTester.testMacro(macros: testMacros)
   }
-}
 #endif
