@@ -1,4 +1,4 @@
-// swift-tools-version: 5.9
+// swift-tools-version:6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import CompilerPluginSupport
@@ -25,19 +25,24 @@ let package = Package(
       dependencies: [
         .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
         .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
-      ]
+      ],
+      path: "Sources/Internal"
     ),
     .target(
       name: name,
-      dependencies: [.target(name: "\(name)Macros")]
+      dependencies: [
+        .target(name: "\(name)Macros")
+      ],
+      path: "Sources/External"
     ),
     .testTarget(
       name: "\(name)Tests",
       dependencies: [
         .target(name: "\(name)Macros"),
-        .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
         .product(name: "MacroTester", package: "swift-macrotester"),
+        .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
       ],
+      path: "Tests/MacroTests",
       resources: [.copy("Resources")]
     ),
   ]
