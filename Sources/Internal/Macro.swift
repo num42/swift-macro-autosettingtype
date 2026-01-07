@@ -1,6 +1,4 @@
-import SwiftCompilerPlugin
 import SwiftSyntax
-import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
 
 public struct AutoSettingTypeMacro: DeclarationMacro {
@@ -35,11 +33,4 @@ public struct AutoSettingTypeMacro: DeclarationMacro {
       """
     ]
   }
-}
-
-@main
-struct AutoSettingTypePlugin: CompilerPlugin {
-  let providingMacros: [Macro.Type] = [
-    AutoSettingTypeMacro.self
-  ]
 }
