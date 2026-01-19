@@ -10,7 +10,8 @@ import Testing
     "AutoSettingType": AutoSettingTypeMacro.self
   ]
 
-  @Suite struct AutoSettingTypeTests {
+  @Suite
+  struct AutoSettingTypeMacroTests {
     @Test func standardType() {
       MacroTester.testMacro(macros: testMacros)
     }
