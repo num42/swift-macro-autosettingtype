@@ -1,3 +1,4 @@
+internal import MacroTestHelper
 internal import SwiftSyntaxMacrosGenericTestSupport
 internal import Testing
 
@@ -7,7 +8,7 @@ internal import Testing
   @Suite
   struct AutoSettingTypeDiagnosticsTests {
     @Test func interpolatedNameThrowsError() {
-      assertMacroExpansion(
+      MacroTestHelper.assertMacroExpansion(
         """
         #AutoSettingType(name: "Allow\\(1)", type: Int.self)
         """,
@@ -26,7 +27,7 @@ internal import Testing
     }
 
     @Test func typeWithoutSelfThrowsError() {
-      assertMacroExpansion(
+      MacroTestHelper.assertMacroExpansion(
         """
         #AutoSettingType(name: "Allow", type: someType)
         """,
