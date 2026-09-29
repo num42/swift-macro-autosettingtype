@@ -1,7 +1,6 @@
-import MacroTester
-import SwiftSyntaxMacros
-import SwiftSyntaxMacrosTestSupport
-import Testing
+internal import MacroTester
+internal import SwiftSyntaxMacros
+internal import Testing
 
 #if canImport(AutoSettingTypeMacros)
   import AutoSettingTypeMacros
